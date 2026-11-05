@@ -1,0 +1,104 @@
+/* ===== Guía de Castellar =====
+   Paleta: cal #faf6ee · olivo #4f5d2a · terracota #b4532a · tinta #231f1a
+   Letras: Fraunces (títulos) · Outfit (texto) */
+:root{
+  --cal:#faf6ee; --olivo:#4f5d2a; --terracota:#b4532a; --tinta:#231f1a;
+  --suave:#efe8da; --sombra:0 12px 30px -12px rgba(35,31,26,.35);
+  --titulos:"Fraunces",Georgia,serif; --texto:"Outfit",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--texto);background:var(--cal);color:var(--tinta);line-height:1.7;font-size:1.05rem}
+a{color:var(--terracota)}
+img{display:block;width:100%;height:auto}
+h1,h2,h3,.logo{font-family:var(--titulos);line-height:1.15}
+h2{font-size:clamp(1.6rem,3vw,2.3rem);color:var(--olivo);margin-bottom:1rem}
+h3{font-size:1.25rem;margin-bottom:.3rem}
+p{margin-bottom:1rem}
+
+/* Cabecera */
+.cabecera{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;
+  padding:.9rem clamp(1rem,4vw,3rem);background:rgba(250,246,238,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--suave)}
+.logo{font-size:1.5rem;font-weight:700;color:var(--tinta);text-decoration:none}
+.logo-icono{color:var(--terracota)}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:.3rem}
+nav a{display:block;padding:.4rem .9rem;border-radius:999px;text-decoration:none;color:var(--tinta);font-weight:600;transition:.25s}
+nav a:hover{background:var(--suave)}
+nav a.activo{background:var(--olivo);color:var(--cal)}
+
+main{max-width:1150px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem) 3rem}
+.etiqueta{text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:600;color:var(--terracota);margin-bottom:.5rem}
+.nota{font-size:.85rem;opacity:.7;font-style:italic}
+
+/* Hero */
+.hero,.cabecera-pagina{position:relative;margin:1.5rem 0 2.5rem;border-radius:24px;overflow:hidden;box-shadow:var(--sombra)}
+.hero img{height:min(80vh,640px);object-fit:cover;animation:zoom 14s ease-out both}
+.cabecera-pagina img{height:min(55vh,420px);object-fit:cover}
+.hero::after,.cabecera-pagina::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(35,31,26,.85),rgba(35,31,26,.1) 60%)}
+.hero-texto,.cabecera-texto{position:absolute;z-index:1;left:clamp(1.2rem,5vw,3.5rem);right:1.2rem;bottom:clamp(1.2rem,5vw,3rem);color:var(--cal);max-width:640px;animation:subir .9s ease-out both}
+.hero-texto .etiqueta,.cabecera-texto .etiqueta{color:var(--suave)}
+.hero h1{font-size:clamp(2.2rem,6vw,4.2rem);margin-bottom:1rem}
+.hero h1 em{color:#f3c9a8;font-weight:400}
+.cabecera-texto h1{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.5rem}
+.boton{display:inline-block;margin-top:.5rem;padding:.8rem 1.6rem;border-radius:999px;background:var(--terracota);color:var(--cal);text-decoration:none;font-weight:600;transition:.25s}
+.boton:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+
+/* Cifras */
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:.5rem}
+.cifras div{background:var(--olivo);color:var(--cal);border-radius:18px;padding:1.4rem;text-align:center}
+.cifras strong{display:block;font-family:var(--titulos);font-size:2rem}
+.cifras span{font-size:.9rem;opacity:.85}
+
+/* Bloques */
+.bloque{margin:3.5rem 0}
+.dos-columnas{display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:start}
+.dato{background:var(--suave);border-left:5px solid var(--terracota);border-radius:0 18px 18px 0;padding:1.6rem}
+.lista-check{list-style:none}
+.lista-check li{position:relative;padding-left:2rem;margin-bottom:.6rem}
+.lista-check li::before{content:"✦";position:absolute;left:0;color:var(--terracota)}
+
+/* Tarjetas */
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.tarjeta{background:#fff;border-radius:20px;overflow:hidden;text-decoration:none;color:var(--tinta);box-shadow:var(--sombra);transition:.3s}
+.tarjeta img{height:200px;object-fit:cover;transition:.5s}
+.tarjeta div{padding:1.2rem 1.4rem}
+.tarjeta:hover{transform:translateY(-6px)}
+.tarjeta:hover img{transform:scale(1.06)}
+
+/* Ruta numerada */
+.ruta{list-style:none;counter-reset:paso;display:grid;gap:1rem}
+.ruta li{counter-increment:paso;position:relative;background:#fff;border-radius:18px;padding:1.4rem 1.4rem 1.4rem 5rem;box-shadow:var(--sombra)}
+.ruta li::before{content:counter(paso);position:absolute;left:1.3rem;top:1.3rem;width:2.6rem;height:2.6rem;border-radius:50%;
+  background:var(--terracota);color:var(--cal);display:grid;place-items:center;font-family:var(--titulos);font-weight:700}
+.ruta p{margin:0}
+
+/* Tablas */
+.tabla-envoltorio{overflow-x:auto;border-radius:18px;box-shadow:var(--sombra)}
+table{width:100%;border-collapse:collapse;background:#fff;min-width:520px}
+th{background:var(--olivo);color:var(--cal);text-align:left;padding:1rem;font-weight:600}
+td{padding:1rem;border-bottom:1px solid var(--suave)}
+tbody tr:nth-child(even){background:var(--cal)}
+tbody tr:hover{background:var(--suave)}
+
+/* Opinión */
+.opinion{margin-top:3rem;padding:2rem;border-radius:20px;border:2px dashed var(--olivo);background:#fff}
+
+/* Pie */
+.pie{background:var(--tinta);color:var(--suave);padding:3rem clamp(1rem,4vw,3rem) 2rem}
+.pie-grid{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+.pie .logo{color:var(--cal);margin-bottom:.5rem}
+.pie h3{font-family:var(--texto);font-size:.8rem;text-transform:uppercase;letter-spacing:.15em;color:#f3c9a8;margin-bottom:.6rem}
+.pie ul{list-style:none}
+.pie a{color:var(--cal)}
+
+@keyframes zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes subir{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+
+/* Móvil */
+@media (max-width:760px){
+  .dos-columnas{grid-template-columns:1fr}
+  .cabecera{justify-content:center}
+  nav ul{justify-content:center}
+  .hero img{height:75vh}
+  .ruta li{padding-left:4.2rem}
+}
